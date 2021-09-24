@@ -19,10 +19,13 @@ $(document).ready(function () {
 });
 
 function get_marketplace(params) {
+    var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNBZGRyZXNzIjoiMHhkMWYyYmYwMjBmNDQ5Yjc1YTUyNDY0YmNiYjAzZjc4MTE3NDg1ZGNiIiwibG9naW5UaW1lIjoxNjMyNDQzODc2MDE2LCJjcmVhdGVEYXRlIjoiMjAyMS0wOC0yNCAwMzozMDoyNyIsImlhdCI6MTYzMjQ0Mzg3Nn0.WYfImH5vjeM3yCwVx3d26-o80ADSx2nfGqdrkoEBW9s'
+
     $.ajax({
         type: "GET",
         url: "https://backend-farm.plantvsundead.com/get-plants-filter-v2?offset=0&limit=100&type=1",
         // data: "data",
+        headers: { Authorization: 'Bearer '+token },
         dataType: "json",
         success: function (response) {
             console.log(response)
