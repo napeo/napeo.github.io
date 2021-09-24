@@ -6,10 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <style href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"></style>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"></script>
+
+    <style>
+    .tw-h-full {
+        height: 100%;
+    }
+    </style>
 </head>
 <body>
-    NAPEO RULES !!
+    <h3>HARGA <= 40 LIMIT 100</h3>
+    <table class="table table-light">
+        <tbody>
+            <tr>
+                <td>ID</td>
+                <td>PLANT</td>
+                <td>PVU</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
 
@@ -29,6 +47,19 @@ function get_marketplace(params) {
         dataType: "json",
         success: function (response) {
             console.log(response)
+
+            $.each(response.data, function (indexInArray, valueOfElement) { 
+                 if (indexInArray.endingPrice <= 40) {
+                    markup = `  <tr>
+                                    <td>`+valueOfElement.id+`</td>
+                                    <td><img src="`+valueOfElement.iconUrl+`" alt="" class="tw-h-full"></td>
+                                    <td>`+valueOfElement.endingPrice+`</td>
+                                </tr>
+                            `;
+                    tableBody = $("table tbody");
+                    tableBody.append(markup);
+                 }
+            });
         }
     });
 }
