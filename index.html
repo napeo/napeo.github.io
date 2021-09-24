@@ -51,11 +51,11 @@ function get_marketplace(params) {
 
             $.each(response.data, function (indexInArray, valueOfElement) { 
                  if (indexInArray.endingPrice <= 40) {
-                    console.log(valueOfElement.endingPrice)
+                    console.log(indexInArray.endingPrice)
                     markup = `  <tr>
-                                    <td>`+valueOfElement.id+`</td>
-                                    <td><img src="`+valueOfElement.iconUrl+`" alt="" class="tw-h-full"></td>
-                                    <td>`+valueOfElement.endingPrice+`</td>
+                                    <td>`+indexInArray.id+`</td>
+                                    <td><img src="`+indexInArray.iconUrl+`" alt="" class="tw-h-full"></td>
+                                    <td>`+indexInArray.endingPrice+`</td>
                                 </tr>
                             `;
                     tableBody = $("table tbody");
