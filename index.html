@@ -14,13 +14,13 @@
 
     <style>
     .tw-h-full {
-        height: 100%;
+        height: 30%;
     }
     </style>
 </head>
 <body>
     <h3>HARGA <= 40 LIMIT 100</h3>
-    <table class="table table-light">
+    <table class="table table-light table-bordered">
         <tbody>
             <tr>
                 <td>ID</td>
@@ -50,9 +50,7 @@ function get_marketplace(params) {
             console.log(response)
 
             $.each(response.data, function (indexInArray, valueOfElement) { 
-                // console.log(valueOfElement.id)
                  if (valueOfElement.endingPrice <= 40) {
-                    // console.log(indexInArray.endingPrice)
                     markup = `  <tr>
                                     <td>`+valueOfElement.id+`</td>
                                     <td><img src="`+valueOfElement.iconUrl+`" alt="" class="tw-h-full"></td>
