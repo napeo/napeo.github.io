@@ -50,18 +50,18 @@ function get_marketplace(params) {
             console.log(response)
 
             $.each(response.data, function (indexInArray, valueOfElement) { 
-                console.log(indexInArray)
-                //  if (indexInArray.endingPrice <= 40) {
+                // console.log(valueOfElement.id)
+                 if (valueOfElement.endingPrice <= 40) {
                     // console.log(indexInArray.endingPrice)
-                    // markup = `  <tr>
-                    //                 <td>`+valueOfElement.id+`</td>
-                    //                 <td><img src="`+valueOfElement.iconUrl+`" alt="" class="tw-h-full"></td>
-                    //                 <td>`+valueOfElement.endingPrice+`</td>
-                    //             </tr>
-                    //         `;
-                    // tableBody = $("table tbody");
-                    // tableBody.append(markup);
-                //  }
+                    markup = `  <tr>
+                                    <td>`+valueOfElement.id+`</td>
+                                    <td><img src="`+valueOfElement.iconUrl+`" alt="" class="tw-h-full"></td>
+                                    <td>`+valueOfElement.endingPrice+`</td>
+                                </tr>
+                            `;
+                    tableBody = $("table tbody");
+                    tableBody.append(markup);
+                 }
             });
         }
     });
