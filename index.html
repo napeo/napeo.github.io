@@ -51,6 +51,7 @@ function get_marketplace(params) {
 
             $.each(response.data, function (indexInArray, valueOfElement) { 
                  if (indexInArray.endingPrice <= 40) {
+                    console.log(valueOfElement.endingPrice)
                     markup = `  <tr>
                                     <td>`+valueOfElement.id+`</td>
                                     <td><img src="`+valueOfElement.iconUrl+`" alt="" class="tw-h-full"></td>
